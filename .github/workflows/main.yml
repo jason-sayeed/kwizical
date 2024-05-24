@@ -1,0 +1,36 @@
+# The name of the workflow
+name: Frontend Testing 
+
+# This workflow will run on any push to the repository
+on: push
+
+jobs:
+  test:
+    name: Frontend Tests
+    # Similar to docker, we set up a virtual machine to run our tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Each step has a name, some code, and some options
+      - name: Check out the code
+        uses: actions/checkout@v3 # This is a reference to some code to run
+
+      # This step installs the Node version
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+
+      # Move to frontend directory and install dependencies
+      - name: Move to frontend and install dependencies
+        run: |
+          cd frontend
+          npm install
+
+      # Test React app
+      - name: Move to frontend and Test
+        run: |
+            cd frontend
+            npm run test
+
+

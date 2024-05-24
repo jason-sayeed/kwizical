@@ -1,0 +1,49 @@
+.audio .play-button {
+  width: 250px;
+  height: 250px;
+  background-color: #e1434b;
+  border-radius: 100%;
+  border: #fff solid 2px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .audio .play-button {
+    width: 200px; /* Adjust width for smaller screens */
+    height: 200px; /* Adjust height for smaller screens */
+  }
+  
+}
+@media (max-width: 400px) {
+  .audio .play-button {
+    width: 150px; /* Adjust width for smaller screens */
+    height: 150px; /* Adjust height for smaller screens */
+  }
+}
+
+.audio .play-button.pulsate {
+  animation: shadowPulse 1s infinite linear;
+}
+
+.icon {
+  font-size: 100px;
+  color: white;
+}
+
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 0 8px 6px transparent, 0 0 0 0 transparent,
+      0 0 0 0 transparent;
+  }
+
+  10% {
+    box-shadow: 0 0 8px 6px #e1434b, 0 0 12px 10px transparent,
+      0 0 12px 5px #e1434b;
+  }
+
+  80%,
+  100% {
+    box-shadow: 0 0 8px 6px transparent, 0 0 0 40px transparent,
+      0 0 0 40px transparent;
+  }
+}
