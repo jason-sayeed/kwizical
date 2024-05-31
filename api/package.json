@@ -1,7 +1,7 @@
 {
-  "name": "acebook-api",
+  "name": "kwizical-api",
   "version": "1.0.0",
-  "description": "Backend template for the Makers Acebook project.",
+  "description": "Backend template for kwizical.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
