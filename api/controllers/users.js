@@ -32,7 +32,7 @@ const getUsersForLeaderboard = async (req, res) => {
     console.error(error);
     res.status(400).json({ message: "Something went wrong" });
   }
-}
+};
 
 const addToUserScore = async (req, res) => {
   const email = req.body.email;
@@ -40,28 +40,28 @@ const addToUserScore = async (req, res) => {
 
   const user = await User.findOne({ email: email });
   if (user) {
-    console.log("old score: " + user.score)
+    console.log("old score: " + user.score);
     //const newScore = user.score + score;
     user.score += score;
     //console.log("new score: " + newScore)
     //if (newScore > user.score) {
-      console.log("updating score")
-      try {
-      User.findOneAndUpdate({ email: email }, user)
-      const newUser = await User.findOne({ email: email })
+    console.log("updating score");
+    try {
+      await User.findOneAndUpdate({ email: email }, { score: user.score });
+      const newUser = await User.findOne({ email: email });
       console.log("new score: " + newUser.score);
-      } catch (error) {
-        console.log(error);
-      }
+    } catch (error) {
+      console.log(error);
+    }
     //   .then(() => {
-           console.log("score after update: " + user.score);
+    console.log("score after update: " + user.score);
     //   })
     // }
-    res.status(200).json({ message: "Score updated" })
+    res.status(200).json({ message: "Score updated" });
   } else {
     res.status(400).json({ message: "User not found" });
   }
-}
+};
 
 const UsersController = {
   create: create,
